@@ -1,8 +1,8 @@
-name: "install-aws-cli-action"
-description: "Install AWS CLI on a Linux host"
+name: "ntd - install-aws-cli-action"
+description: "ntd - install-aws-cli-action"
 branding:
-  icon: "download-cloud"
-  color: "orange"
+  icon: arrow-up-circle
+  color: blue
 inputs:
   version:
     description: "1=latest version of v1, 2=latest version of v2, #.#.#=specific version"
