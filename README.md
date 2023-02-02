@@ -1,14 +1,5 @@
 # install-aws-cli-action
 
-[![test](https://github.com/unfor19/install-aws-cli-action/actions/workflows/test.yaml/badge.svg)](https://github.com/unfor19/install-aws-cli-action/actions?query=workflow%3Atest)
-[![test-action](https://github.com/unfor19/install-aws-cli-action-test/workflows/test-action/badge.svg)](https://github.com/unfor19/install-aws-cli-action-test/actions?query=workflow%3Atest-action)
-
-Install/Setup AWS CLI on a GitHub Actions Linux host.
-
-After this action, every step is capable of running `aws` CLI, and it's up to you to set AWS credentials in the subsequent steps.
-
-Tested in [unfor19/install-aws-cli-action-test](https://github.com/unfor19/install-aws-cli-action-test/actions?query=workflow%3Atest-action)
-
 **TIP**: It's possible to use the [entrypoint.sh](https://github.com/unfor19/install-aws-cli-action/blob/master/entrypoint.sh) script as a "bootstrap script to install/setup aws cli on Linux", regardless of GitHub Actions; see [Other Options](https://github.com/unfor19/install-aws-cli-action#other-options) for more details.
 
 ## Usage
@@ -26,7 +17,7 @@ Add the following step to a job in your workflow
 
 ```yaml
 - id: install-aws-cli
-  uses: unfor19/install-aws-cli-action@v1
+  uses: nocnoc-thailand/install-aws-cli-action@v1.0.1
   with:
     version: 2     # default
     verbose: false # default
@@ -36,8 +27,6 @@ Add the following step to a job in your workflow
 ```
 
 ### Full example
-
-See [unfor19/install-aws-cli-action-test/blob/master/.github/workflows/test-action.yml](https://github.com/unfor19/install-aws-cli-action-test/blob/master/.github/workflows/test-action.yml)
 
 ```yaml
 name: test-action
@@ -64,7 +53,7 @@ jobs:
     steps:
       - name: Test ${{ matrix.TEST_NAME }}
         id: install-aws-cli
-        uses: unfor19/install-aws-cli-action@master
+        uses: nocnoc-thailand/install-aws-cli-action@master
         with:
           version: ${{ matrix.AWS_CLI_VERSION }}
       - run: aws --version
@@ -91,12 +80,6 @@ jobs:
   ```
   **NOTE**: On some Docker images, you might need to add `sudo` in front of each command, like `sudo curl -L ..`, `sudo chmod ..`, etc.
 
-## Local Development
-
-<details>
-
-<summary>Expand/Collapse</summary>
-
 ### Requirements
 
 - Docker
@@ -111,13 +94,3 @@ jobs:
    ```bash
    docker run --rm -it "install-aws-cli-action" "v2" "amd64"
    ```
-
-</details>
-
-## Authors
-
-Created and maintained by [Meir Gabay](https://github.com/unfor19)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/unfor19/install-aws-cli-action/blob/master/LICENSE) file for details
